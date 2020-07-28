@@ -17,7 +17,6 @@ public class BottomNavigation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_navigation);
-
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -37,7 +36,7 @@ public class BottomNavigation extends AppCompatActivity {
                     return true;
                 case R.id.action_three:
                     return true;
-                case R.id.action_four:
+                case R.id.action_bon:
                     return true;
             }
             return false;

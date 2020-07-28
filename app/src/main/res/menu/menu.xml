@@ -20,7 +20,7 @@
         android:title="Ba"
         app:showAsAction="always" />
     <item
-        android:id="@+id/action_four"
+        android:id="@+id/action_bon"
         android:enabled="true"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="Bốn"
