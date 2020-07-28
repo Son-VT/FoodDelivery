@@ -11,7 +11,7 @@
         android:id="@+id/action_two"
         android:enabled="true"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Two"
+        android:title="Hai"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_three"
