@@ -4,25 +4,25 @@
     <item
         android:id="@+id/action_one"
         android:enabled="true"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="One"
+        android:icon="@drawable/ic_home"
+        android:title="Trang chủ"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_two"
         android:enabled="true"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Hai"
+        android:icon="@drawable/ic_place"
+        android:title="Cửa hàng gần "
         app:showAsAction="always" />
     <item
         android:id="@+id/action_three"
         android:enabled="true"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="Ba"
+        android:icon="@drawable/ic_cart"
+        android:title="Giỏ hàng"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_bon"
         android:enabled="true"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="Bốn"
+        android:icon="@drawable/ic_settings"
+        android:title="Cài đặt"
         app:showAsAction="always" />
 </menu>
