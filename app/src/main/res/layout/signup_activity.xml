@@ -36,7 +36,6 @@
                 android:hint="Nhập Email"
                 android:paddingLeft="10dp"
                 android:lines="1"
-                android:text="son@gmail.com"
                 android:drawablePadding="10dp"
                 android:drawableLeft="@drawable/ic_mail"
                 android:drawableStart="@drawable/ic_mail"
