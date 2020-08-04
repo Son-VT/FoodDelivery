@@ -48,7 +48,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputPass"
             android:layout_width="313dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
@@ -72,7 +72,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputRePass"
             android:layout_width="313dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
             app:counterMaxLength="6"
@@ -80,19 +80,19 @@
             android:layout_marginTop="10dp"
             android:layout_below="@+id/inputPass"
             app:passwordToggleEnabled="true">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputRePassword"
-                android:hint="Nhập lại mật khẩu"
-                android:lines="1"
-                android:drawablePadding="10dp"
-                android:paddingLeft="10dp"
-                android:drawableLeft="@drawable/ic_registration"
-                android:drawableStart="@drawable/ic_registration"
-                android:singleLine="true"
 
-                android:inputType="textPassword"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtRePassword"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_registration"
+                android:drawableLeft="@drawable/ic_registration"
+                android:drawablePadding="10dp"
+                android:hint="Nhập lại mật khẩu"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
