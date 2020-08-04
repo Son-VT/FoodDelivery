@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "540676887861",
+    "firebase_url": "https://duan1-686fa.firebaseio.com",
+    "project_id": "duan1-686fa",
+    "storage_bucket": "duan1-686fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540676887861:android:88786e26d63c9bb992a87c",
+        "android_client_info": {
+          "package_name": "com.example.fooddelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540676887861-9sqbq7jup4r4a9agj2ee4mdj2hb3bjco.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fooddelivery",
+            "certificate_hash": "b05f43a1216572be7046b9380e3beaf9e05b9369"
+          }
+        },
+        {
+          "client_id": "540676887861-hv7vmgpvf3o3rvetrlq7doi015nstatr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMs3P_PEEr2HNGVwNjsZLR7SS14jh3_8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540676887861-hv7vmgpvf3o3rvetrlq7doi015nstatr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

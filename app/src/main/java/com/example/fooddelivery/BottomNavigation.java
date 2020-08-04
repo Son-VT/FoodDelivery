@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.fooddelivery.fragment.HomeFragment;
+import com.example.fooddelivery.fragment.SettingFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomNavigation extends AppCompatActivity {
@@ -34,6 +35,7 @@ public class BottomNavigation extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new HomeFragment()).commit();
                     return true;
                 case R.id.action_two:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new SettingFragment()).commit();
                     return true;
                 case R.id.action_three:
                     return true;
