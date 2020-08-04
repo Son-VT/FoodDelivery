@@ -25,11 +25,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputEmail"
             android:layout_width="313dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/dn"
-            android:background="@drawable/border_edit_text"
             android:layout_gravity="center"
             >
             <com.google.android.material.textfield.TextInputEditText
@@ -52,7 +51,6 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_edit_text"
             android:layout_centerHorizontal="true"
             app:counterMaxLength="6"
             app:counterEnabled="true"
@@ -80,7 +78,6 @@
             app:counterMaxLength="6"
             app:counterEnabled="true"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_edit_text"
             android:layout_below="@+id/inputPass"
             app:passwordToggleEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
@@ -103,10 +100,10 @@
             android:layout_below="@id/inputRePass"
             android:layout_centerHorizontal="true"
             android:background="@drawable/custom_btn"
-            android:layout_width="313dp"
+            android:layout_width="250dp"
             android:text="-> Xác nhận"
             android:layout_marginTop="50dp"
-            android:layout_height="60dp"/>
+            android:layout_height="50dp"/>
     </RelativeLayout>
 
 </LinearLayout>

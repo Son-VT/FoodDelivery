@@ -25,18 +25,17 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputEmail"
             android:layout_width="313dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="80dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/dn"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:layout_below="@+id/dn"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtEmail"
                 android:hint="Nhập Email"
                 android:paddingLeft="10dp"
                 android:lines="1"
-                android:background="@drawable/border_edit_text"
                 android:drawablePadding="10dp"
                 android:drawableLeft="@drawable/ic_mail"
                 android:drawableStart="@drawable/ic_mail"
@@ -63,7 +62,7 @@
                 android:lines="1"
                 android:drawablePadding="10dp"
                 android:paddingLeft="10dp"
-                android:background="@drawable/border_edit_text"
+
                 android:drawableLeft="@drawable/ic_password"
                 android:drawableStart="@drawable/ic_password"
                 android:singleLine="true"
