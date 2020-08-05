@@ -63,7 +63,6 @@
                 android:lines="1"
                 android:drawablePadding="10dp"
                 android:paddingLeft="10dp"
-                android:text="123456"
                 android:drawableLeft="@drawable/ic_password"
                 android:drawableStart="@drawable/ic_password"
                 android:singleLine="true"
