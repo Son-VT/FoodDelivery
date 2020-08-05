@@ -36,7 +36,7 @@
                 android:hint="Nhập Email"
                 android:paddingLeft="10dp"
                 android:lines="1"
-                android:text="sonvtps11147@fpt.edu.vn"
+                android:text="sonvtps11147@fpt.edu.vjjjjn"
                 android:drawablePadding="10dp"
                 android:drawableLeft="@drawable/ic_mail"
                 android:drawableStart="@drawable/ic_mail"
