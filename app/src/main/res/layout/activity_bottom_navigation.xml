@@ -17,10 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
         app:itemBackground="@color/white"
-        android:foreground="?attr/selectableItemBackground"
-        app:itemIconTint="@android:color/black"
-        app:itemTextColor="@android:color/black"
+        android:outlineSpotShadowColor="@color/green"
         app:menu="@menu/menu" />
 </RelativeLayout>
+
