@@ -12,22 +12,23 @@
         android:elevation="8dp"
         android:orientation="vertical"
         android:layout_weight= "9">
-        <ImageView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng nhập"
             android:id="@+id/dn"
-            android:layout_width="115dp"
-            android:layout_height="115dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="70dp"
             android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:src="@drawable/logo" />
+            android:textColor="#7bed8d"
+            android:textSize="24dp"
+            />
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputEmail"
             android:layout_width="313dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="80dp"
             android:layout_below="@+id/dn"
             >
             <com.google.android.material.textfield.TextInputEditText
@@ -35,9 +36,10 @@
                 android:hint="Nhập Email"
                 android:paddingLeft="10dp"
                 android:lines="1"
+                android:text="duonghx....@fpt.edu.vn"
                 android:drawablePadding="10dp"
-                android:drawableLeft="@drawable/ic_email"
-                android:drawableStart="@drawable/ic_email"
+                android:drawableLeft="@drawable/ic_mail"
+                android:drawableStart="@drawable/ic_mail"
                 android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
@@ -61,8 +63,9 @@
                 android:lines="1"
                 android:drawablePadding="10dp"
                 android:paddingLeft="10dp"
-                android:drawableLeft="@drawable/ic_lock"
-                android:drawableStart="@drawable/ic_lock"
+                android:text="son123"
+                android:drawableLeft="@drawable/ic_password"
+                android:drawableStart="@drawable/ic_password"
                 android:singleLine="true"
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
@@ -80,18 +83,13 @@
             />
         <Button
             android:id="@+id/btnSignIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtForgotPass"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/button_login"
-            android:text="Sign In"
-            android:textColor="#fff"
-            android:textSize="20sp"
-            android:textStyle="normal" />
+            android:layout_below="@id/txtForgotPass"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/custom_btn"
+            android:layout_width="250dp"
+            android:text="-> Đăng nhập"
+            android:layout_marginTop="50dp"
+            android:layout_height="50dp"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
