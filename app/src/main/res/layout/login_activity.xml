@@ -50,7 +50,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
-            app:counterMaxLength="6"
             app:counterEnabled="true"
             android:layout_marginTop="20dp"
             android:layout_below="@+id/inputEmail"

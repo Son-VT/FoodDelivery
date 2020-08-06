@@ -89,10 +89,6 @@ public class LoginActivity extends AppCompatActivity {
                 inputPass.setError("Mật khẩu phải là 6 ký tự");
                 requestFocus(edtpassword);
                 return false;
-            }else if(edtpassword.getText().toString().length() > 6) {
-                inputPass.setError("Mật khẩu không quá 6 ký tự");
-                requestFocus(edtpassword);
-                return false;
             }else {
                 inputPass.setErrorEnabled(false);
             }

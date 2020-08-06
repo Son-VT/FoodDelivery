@@ -86,10 +86,6 @@ public class SignUpActivity extends AppCompatActivity {
             inputRegPass.setError("Mật khẩu phải là 6 ký tự");
             requestFocus(regPass);
             return false;
-        }else if(regPass.getText().toString().length() > 6) {
-            inputRegPass.setError("Mật khẩu không quá 6 ký tự");
-            requestFocus(regPass);
-            return false;
         }else {
             inputRegPass.setErrorEnabled(false);
         }
