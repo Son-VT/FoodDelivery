@@ -11,13 +11,13 @@
         android:id="@+id/action_two"
         android:enabled="true"
         android:icon="@drawable/ic_theloai"
-        android:title="Thể Loại "
+        android:title="DS cửa hàng "
         app:showAsAction="always" />
     <item
         android:id="@+id/action_three"
         android:enabled="true"
         android:icon="@drawable/ic_add"
-        android:title="Giỏ Hàng"
+        android:title="Map"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_giohang"
