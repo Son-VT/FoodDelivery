@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,7 +22,14 @@ public class BottomNavigation extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setItemIconTintList(null);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        // set fragment home đầu tiên
+        if (savedInstanceState == null) {
+            HomeFragment gt  = new HomeFragment();
+            FragmentManager mn = getSupportFragmentManager();
+            mn.beginTransaction()
+                    .add(R.id.frame_layout, gt)
+                    .commit();
+        }
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -35,11 +43,13 @@ public class BottomNavigation extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new HomeFragment()).commit();
                     return true;
                 case R.id.action_two:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new SettingFragment()).commit();
                     return true;
                 case R.id.action_three:
                     return true;
+                case R.id.action_giohang:
+                    return true;
                 case R.id.action_bon:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new SettingFragment()).commit();
                     return true;
             }
             return false;

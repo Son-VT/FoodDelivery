@@ -5,24 +5,29 @@
         android:id="@+id/action_one"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="Trang chủ"
+        android:title="Trang Chủ"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_two"
         android:enabled="true"
-        android:icon="@drawable/ic_place"
-        android:title="Cửa hàng gần "
+        android:icon="@drawable/ic_theloai"
+        android:title="Thể Loại "
         app:showAsAction="always" />
     <item
         android:id="@+id/action_three"
         android:enabled="true"
-        android:icon="@drawable/ic_cart"
-        android:title="Giỏ hàng"
+        android:icon="@drawable/ic_add"
+        android:title="Giỏ Hàng"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/action_giohang"
+        android:icon="@drawable/ic_shopping_cart"
+        android:title="Giỏ hàng"
+        app:showAsAction="always"/>
     <item
         android:id="@+id/action_bon"
         android:enabled="true"
         android:icon="@drawable/ic_settings"
-        android:title="Cài đặt"
+        android:title="Cài Đặt"
         app:showAsAction="always" />
 </menu>
