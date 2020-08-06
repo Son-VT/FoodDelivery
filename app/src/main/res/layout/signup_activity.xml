@@ -25,7 +25,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputEmail"
-            android:layout_width="313dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:layout_centerHorizontal="true"
@@ -48,7 +50,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputPass"
-            android:layout_width="313dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
@@ -71,7 +75,9 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputRePass"
-            android:layout_width="313dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
@@ -99,8 +105,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/inputRePass"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="40dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/button_login"
