@@ -20,34 +20,25 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.It
 
     private List<Category> categories = new ArrayList<>();
     private Context context;
-//    private final OnCategoryClickListener mListener;
-
+    private OnItemClickListener mListener;
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
     public CategoriesAdapter(Context context){
         this.context = context;
-
-//        try {
-//            this.mListener = ((OnCategoryClickListener) context);
-//        } catch (ClassCastException e) {
-//            throw new ClassCastException("Activity must implement OnPlaceClickListener.");
-//        }
-
-        String[] categoryNames = {"Lanches", "Pizza",
-                "Japonesa", "Churrasco", "Brasileira", "Saudável", "Doces", "Sorvetes", "Chinesa", "Árabe"};
+        String[] categoryNames = {"Cơm Phần", "Trà Sữa",
+                "Gà Rán", "Bún/Phở","Ăn Vặt", "Món Hàn"};
 
         int images_array[] = {
-                R.drawable.category_sushi,
-                R.drawable.category_sushi,
-                R.drawable.category_sushi,
-                R.drawable.category_sushi,
-                R.drawable.category_sushi,
-                R.drawable.category_sushi,
-                R.drawable.category_sushi,
-                R.drawable.category_sushi,
-                R.drawable.category_sushi,
-                R.drawable.category_sushi,
+                R.drawable.rice,
+                R.drawable.milk,
+                R.drawable.ic_fried_chicken,
+                R.drawable.ic_noodles,
+                R.drawable.ic_snack,
+                R.drawable.ic_koreanfood,
         };
 
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 6; i++){
             Category category = new Category(categoryNames[i], images_array[i]);
             categories.add(category);
         }
@@ -57,25 +48,15 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.It
     @Override
     public ItemHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.theloai_one_item, viewGroup, false);
-        ItemHolder holder = new ItemHolder(view);
+        ItemHolder holder = new ItemHolder(view, mListener);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemHolder holder, final int position) {
         final Category category =  categories.get(position);
-
         holder.mCategoryName.setText(category.getCategoryName());
-
         holder.mCategoryImage.setImageResource(category.getCategoryDrawable());
-
-//        holder.mView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (mListener != null)
-//                    mListener.onCategoryClickListener(category);
-//            }
-//        });
     }
 
     public class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -84,19 +65,30 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.It
         public View mView;
 
 
-        public ItemHolder(@NonNull View itemView) {
+        public ItemHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             mView = itemView;
             mCategoryName = itemView.findViewById(R.id.category_name);
             mCategoryImage = itemView.findViewById(R.id.category_photo);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
 
         @Override
         public void onClick(View v) {}
     }
 
-    public interface OnCategoryClickListener {
-        void onCategoryClickListener(Category category);
+    public interface OnItemClickListener {
+        void onItemClick(int position);
     }
 
     @Override

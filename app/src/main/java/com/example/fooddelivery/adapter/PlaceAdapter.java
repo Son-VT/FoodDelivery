@@ -22,16 +22,12 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ItemHolder>{
 
     private List<Place> mPlaces = new ArrayList<>();
     private Context context;
-//    private final OnPlaceClickListener mListener;
-
+    private OnPlaceClickListener mListener;
+    public void setOnPlaceItemClickListener (OnPlaceClickListener onPlaceItemClickListener){
+        mListener = onPlaceItemClickListener;
+    }
     public PlaceAdapter(Context context){
         this.context = context;
-
-//        try {
-//            this.mListener = ((OnPlaceClickListener) context);
-//        } catch (ClassCastException e) {
-//            throw new ClassCastException("Activity must implement OnPlaceClickListener.");
-//        }
 
         String[] placeNames = {"Chipotle", "Five Guys",
                 "Starbucks", "Subway", "Dunkin Donuts", "Habbib's", "Mac Donalds", "Chipotle", "Starbucks", "Dunkin Donuts"};
@@ -66,7 +62,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ItemHolder>{
     @Override
     public ItemHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.quanan_one_item, viewGroup, false);
-        ItemHolder holder = new ItemHolder(view);
+        ItemHolder holder = new ItemHolder(view, mListener);
         return holder;
     }
 
@@ -86,22 +82,13 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ItemHolder>{
         } else {
             holder.icFavorite.setImageResource(R.drawable.star2);
         }
-
-//        holder.lnlFavorite.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (mListener  != null)
-//                    mListener.onPlaceFavoriteClick(place);
-//            }
-//        });
-//
-//        holder.mView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (mListener != null)
-//                    mListener.onPlaceClickListener(place);
-//            }
-//        });
+        holder.lnlFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener  != null)
+                    mListener.onPlaceFavoriteClick(place);
+            }
+        });
     }
 
     public class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -112,7 +99,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ItemHolder>{
         public Place mItem;
 
 
-        public ItemHolder(@NonNull View itemView) {
+        public ItemHolder(@NonNull View itemView, final OnPlaceClickListener onPlaceClickListener) {
             super(itemView);
             mView = itemView;
             placeName = itemView.findViewById(R.id.place_name);
@@ -121,7 +108,17 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ItemHolder>{
             placeDelivery = itemView.findViewById(R.id.place_delivery);
             lnlFavorite = itemView.findViewById(R.id.lnl_favorite);
             icFavorite = itemView.findViewById(R.id.ic_favorite);
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onPlaceClickListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            onPlaceClickListener.onPlaceItemClick(position);
+                        }
+                    }
+                }
+            });
         }
 
         @Override
@@ -131,7 +128,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ItemHolder>{
     }
 
     public interface OnPlaceClickListener {
-        void onPlaceClickListener(Place place);
+        void onPlaceItemClick(int position);
         void onPlaceFavoriteClick(Place place);
     }
 

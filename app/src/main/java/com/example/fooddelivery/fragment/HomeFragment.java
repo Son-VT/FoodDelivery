@@ -1,22 +1,25 @@
 package com.example.fooddelivery.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.PagerAdapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.fooddelivery.R;
 import com.example.fooddelivery.adapter.CategoriesAdapter;
 import com.example.fooddelivery.adapter.PlaceAdapter;
 import com.example.fooddelivery.adapter.SliderAdapter;
+import com.example.fooddelivery.model.Place;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -53,6 +56,69 @@ public class HomeFragment extends Fragment  {
         rcvQuanGoiY.setLayoutManager(place);
         placeAdapter = new PlaceAdapter(getActivity());
         rcvQuanGoiY.setAdapter(placeAdapter);
+        categoriesAdapter.setOnItemClickListener(new CategoriesAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                if (position == 0) {
+                    Fragment newFragment = new ComPhanFragment();
+                    // consider using Java coding conventions (upper first char class names!!!)
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack
+                    transaction.replace(R.id.frame_layout, newFragment);
+                    transaction.addToBackStack(null);
+                    // Commit the transaction
+                    transaction.commit();
+                }
+                if (position == 1) {
+                    Fragment newFragment = new TraSuaFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_layout, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+                if (position == 2) {
+                    Fragment newFragment = new GaRanFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_layout, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+                if (position == 3) {
+                    Fragment newFragment = new Bun_PhoFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_layout, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+                if (position == 4) {
+                    Fragment newFragment = new AnVatFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_layout, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+                if (position == 5) {
+                    Fragment newFragment = new MonHanFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_layout, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+            }
+        });
+        placeAdapter.setOnPlaceItemClickListener(new PlaceAdapter.OnPlaceClickListener() {
+            @Override
+            public void onPlaceItemClick(int position) {
+                Toast.makeText(getActivity(),"Vị trí: "+ position,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onPlaceFavoriteClick(Place place) {
+                placeAdapter.setFavorite(place.getPlaceId());
+                placeAdapter.notifyDataSetChanged();
+            }
+        });
         //custom slider
         SliderAdapter adapter = new SliderAdapter(getActivity());
         sliderView.setSliderAdapter(adapter);

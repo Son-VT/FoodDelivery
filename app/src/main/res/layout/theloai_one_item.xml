@@ -12,20 +12,21 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="1"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="5dp"
         app:cardElevation="1dp">
-
-        <ImageView
-            android:id="@+id/category_photo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
-
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.3"
-            android:background="@android:color/black"/>
+            android:background="@drawable/border"
+            android:alpha="1"
+            />
+        <ImageView
+            android:id="@+id/category_photo"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/category_name"
@@ -36,10 +37,10 @@
             android:singleLine="true"
             android:text="Sushi"
             android:textSize="14sp"
-            android:layout_marginBottom="10dp"
+
             android:layout_gravity="bottom"
             android:gravity="center_horizontal"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
 
     </androidx.cardview.widget.CardView>
