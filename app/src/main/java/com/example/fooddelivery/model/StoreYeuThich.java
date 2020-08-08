@@ -17,6 +17,7 @@ class StoreYeuThich implements Serializable {
     }
 
     public StoreYeuThich(int like) {
+
         Like = like;
     }
 }
