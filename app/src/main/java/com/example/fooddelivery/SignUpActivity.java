@@ -11,20 +11,30 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
     Button btnSignUp;
     private FirebaseAuth mAuth;
     TextInputEditText regUser, regPass, regRePass, redSdt;
     TextInputLayout inputRegUser, inputRegPass, inputRegPass1, inputRegPhone;
+    ProgressBar pb;
+    String userID;
+    FirebaseFirestore firestore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,10 +46,18 @@ public class SignUpActivity extends AppCompatActivity {
         inputRegUser = findViewById(R.id.inputEmail);
         inputRegPass = findViewById(R.id.inputPass);
         inputRegPass1 = findViewById(R.id.inputRePass);
+        pb = findViewById(R.id.pbRegister);
+
+        firestore = FirebaseFirestore.getInstance();
         regPass.addTextChangedListener(new ValidationTextWatcher(regPass));
         regRePass.addTextChangedListener(new ValidationTextWatcher(regRePass));
         regUser.addTextChangedListener(new ValidationTextWatcher(regUser));
         mAuth = FirebaseAuth.getInstance();
+
+        if (mAuth.getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(), BottomNavigation.class));
+            finish();
+        }
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +65,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if(validateEmail() & validatePassword() == true){
                     final String email= regUser.getText().toString();
                     final String password = regPass.getText().toString();
+                    pb.setVisibility(View.VISIBLE);
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -55,6 +74,16 @@ public class SignUpActivity extends AppCompatActivity {
                                         Log.v(email,password);
                                         Toast.makeText(SignUpActivity.this, "Đăng kí thành công",
                                                 Toast.LENGTH_SHORT).show();
+                                        userID = mAuth.getCurrentUser().getUid();
+                                        DocumentReference documentReference = firestore.collection("users").document(userID);
+                                        Map<String, Object> user = new HashMap<>();
+                                        user.put("email",email);
+                                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d("TAG","Thành công "+ userID);
+                                            }
+                                        });
                                         Intent i = new Intent(SignUpActivity.this,LoginActivity.class);
                                         startActivity(i);
 
@@ -62,6 +91,7 @@ public class SignUpActivity extends AppCompatActivity {
                                         Log.v(email,password);
                                         Toast.makeText(SignUpActivity.this, "Nhập đúng định dạng email, mật khẩu 6 kí tự",
                                                 Toast.LENGTH_SHORT).show();
+                                        pb.setVisibility(View.GONE);
                                     }
                                 }
                             });
@@ -84,10 +114,6 @@ public class SignUpActivity extends AppCompatActivity {
             return false;
         }else if(regPass.getText().toString().length() < 6){
             inputRegPass.setError("Mật khẩu phải là 6 ký tự");
-            requestFocus(regPass);
-            return false;
-        }else if(regPass.getText().toString().length() > 6) {
-            inputRegPass.setError("Mật khẩu không quá 6 ký tự");
             requestFocus(regPass);
             return false;
         }else {
