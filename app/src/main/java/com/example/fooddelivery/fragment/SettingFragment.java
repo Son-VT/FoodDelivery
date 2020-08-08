@@ -76,7 +76,7 @@ public class SettingFragment extends Fragment {
         userID = fAuth.getCurrentUser().getUid();
 
         final DocumentReference documentReference = fStore.collection("users").document(userID);
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        documentReference.addSnapshotListener( new EventListener<DocumentSnapshot>()
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 tvMailProfile.setText(value.getString("email"));
