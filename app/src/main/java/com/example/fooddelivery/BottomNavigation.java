@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.fooddelivery.fragment.GioHangFragment;
 import com.example.fooddelivery.fragment.HomeFragment;
 import com.example.fooddelivery.fragment.ListRestaurantFragment;
 import com.example.fooddelivery.fragment.SettingFragment;
@@ -49,6 +50,7 @@ public class BottomNavigation extends AppCompatActivity {
                 case R.id.action_three:
                     return true;
                 case R.id.action_giohang:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new GioHangFragment()).commit();
                     return true;
                 case R.id.action_bon:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new SettingFragment()).commit();
