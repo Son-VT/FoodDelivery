@@ -16,18 +16,20 @@
             android:id="@+id/dn"
             android:layout_width="115dp"
             android:layout_height="115dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="30dp"
             android:layout_centerHorizontal="true"
             android:padding="10dp"
             android:src="@drawable/logo" />
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputEmail"
-            android:layout_width="313dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@+id/dn"
             >
             <com.google.android.material.textfield.TextInputEditText
@@ -46,7 +48,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputPass"
-            android:layout_width="313dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
@@ -77,14 +81,24 @@
             android:layout_height="wrap_content"
             android:text="Quên mật khẩu?"
             />
+
+        <ProgressBar
+            android:id="@+id/pbLogin"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/txtForgotPass"
+            android:layout_centerInParent="true"
+            android:visibility="invisible" />
+
         <Button
             android:id="@+id/btnSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtForgotPass"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginRight="40dp"
+            android:layout_below="@+id/pbLogin"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/button_login"
             android:text="Sign In"

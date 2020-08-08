@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView txtSignUp;
     TextInputLayout inputEmail,inputPass;
     TextInputEditText edtemail, edtpassword;
+    ProgressBar pb;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +42,23 @@ public class LoginActivity extends AppCompatActivity {
         inputPass = findViewById(R.id.inputPass);
         edtemail.addTextChangedListener(new LoginActivity.ValidationTextWatcher(edtemail));
         edtpassword.addTextChangedListener(new LoginActivity.ValidationTextWatcher(edtpassword));
+
+        pb = findViewById(R.id.pbLogin);
+
+        if (mAuth.getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(), BottomNavigation.class));
+            finish();
+        }
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(validateEmail() & validatePassword() == true){
                     String email = edtemail.getText().toString();
                     String pass = edtpassword.getText().toString();
+
+                    pb.setVisibility(View.VISIBLE);
+
                     mAuth.signInWithEmailAndPassword(email, pass)
                             .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -60,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                                     } else {
                                         Toast.makeText(LoginActivity.this, "Đăng nhập thất bại",
                                                 Toast.LENGTH_SHORT).show();
+                                        pb.setVisibility(View.GONE);
                                     }
                                 }
                             });

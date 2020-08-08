@@ -17,7 +17,7 @@
             android:id="@+id/dn"
             android:layout_width="115dp"
             android:layout_height="115dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="30dp"
             android:layout_centerHorizontal="true"
             android:padding="10dp"
@@ -29,7 +29,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/dn"
             android:layout_gravity="center">
@@ -100,11 +100,20 @@
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <ProgressBar
+            android:id="@+id/pbRegister"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/inputRePass"
+            android:layout_centerInParent="true"
+            android:visibility="invisible" />
+
         <Button
             android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/inputRePass"
+            android:layout_below="@+id/pbRegister"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="40dp"
