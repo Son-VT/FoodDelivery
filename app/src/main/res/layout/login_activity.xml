@@ -12,6 +12,7 @@
         android:elevation="8dp"
         android:orientation="vertical"
         android:layout_weight= "9">
+
         <ImageView
             android:id="@+id/dn"
             android:layout_width="115dp"
@@ -21,6 +22,7 @@
             android:layout_centerHorizontal="true"
             android:padding="10dp"
             android:src="@drawable/logo" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputEmail"
             android:layout_width="match_parent"

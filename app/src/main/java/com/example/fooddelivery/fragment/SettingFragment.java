@@ -1,6 +1,7 @@
 package com.example.fooddelivery.fragment;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -75,7 +76,7 @@ public class SettingFragment extends Fragment {
         userID = fAuth.getCurrentUser().getUid();
 
         final DocumentReference documentReference = fStore.collection("users").document(userID);
-        documentReference.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 tvMailProfile.setText(value.getString("email"));
