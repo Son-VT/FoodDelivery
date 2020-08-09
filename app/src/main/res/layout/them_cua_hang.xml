@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/edtIDStore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mã loại cửa hàng"
+        />
+    <EditText
+        android:id="@+id/edtTenCH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên cửa hàng"
+        />
+    <EditText
+        android:id="@+id/edtDiaChiCH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Địa chỉ"/>
+    <EditText
+        android:id="@+id/edtDanhGiaCH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Đánh giá"/>
+    <EditText
+        android:id="@+id/edtHinhCH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hình"
+        />
+    <EditText
+        android:id="@+id/edtViDo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Vĩ Độ"/>
+    <EditText
+        android:id="@+id/edtKinhDo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Kinh Độ"/>
+    <Button
+        android:id="@+id/btnThemCH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:text="Thêm cửa hàng"
+        />
+</LinearLayout>

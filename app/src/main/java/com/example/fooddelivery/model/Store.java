@@ -2,7 +2,7 @@ package com.example.fooddelivery.model;
 
 import java.io.Serializable;
 
-class CuaHang implements Serializable {
+public class Store implements Serializable {
     private String StoreID;
     private String StoreIDTheLoai;
     private String StoreName;
@@ -12,6 +12,18 @@ class CuaHang implements Serializable {
     private Double StoreViDo;
     private Double StoreKinhDo;
 
+    public Store() {
+    }
+    public Store(String storeID, String storeIDTheLoai, String storeName, String storeDiaChi, Double storeDanhGia, String storeHinhAnh, Double storeViDo, Double storeKinhDo) {
+        StoreID = storeID;
+        StoreIDTheLoai = storeIDTheLoai;
+        StoreName = storeName;
+        StoreDiaChi = storeDiaChi;
+        StoreDanhGia = storeDanhGia;
+        StoreHinhAnh = storeHinhAnh;
+        StoreViDo = storeViDo;
+        StoreKinhDo = storeKinhDo;
+    }
     public String getStoreID() {
         return StoreID;
     }
@@ -76,17 +88,4 @@ class CuaHang implements Serializable {
         StoreKinhDo = storeKinhDo;
     }
 
-    public CuaHang() {
-    }
-
-    public CuaHang(String storeID, String storeIDTheLoai, String storeName, String storeDiaChi, Double storeDanhGia, String storeHinhAnh, Double storeViDo, Double storeKinhDo) {
-        StoreID = storeID;
-        StoreIDTheLoai = storeIDTheLoai;
-        StoreName = storeName;
-        StoreDiaChi = storeDiaChi;
-        StoreDanhGia = storeDanhGia;
-        StoreHinhAnh = storeHinhAnh;
-        StoreViDo = storeViDo;
-        StoreKinhDo = storeKinhDo;
-    }
 }
