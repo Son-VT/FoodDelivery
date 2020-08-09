@@ -3,10 +3,12 @@ package com.example.fooddelivery.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.fooddelivery.R;
 
@@ -34,6 +36,27 @@ public class GaRanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.ga_ran_fragment, container, false);
+        View view = inflater.inflate(R.layout.ga_ran_fragment, container, false);
+
+        ImageView back = view.findViewById(R.id.backGaran);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Fragment newFragment = new HomeFragment();
+                // consider using Java coding conventions (upper first char class names!!!)
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(R.id.frame_layout, newFragment);
+                transaction.addToBackStack(null);
+                // Commit the transaction
+                transaction.commit();
+
+            }
+        });
+
+        return view;
     }
 }
